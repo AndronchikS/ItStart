@@ -2,7 +2,6 @@
 add_action('wp_enqueue_scripts', 'my_scripts_method'); //по событию вызов функции подключения
 
 function my_scripts_method() {
-
 	wp_register_style('stylesheet', get_template_directory_uri() . "/style.css", array(), null, 'all');
 	wp_enqueue_style('stylesheet');
 
@@ -30,4 +29,21 @@ function my_scripts_method() {
 	wp_register_script('custom', get_template_directory_uri() . "/js/custom.js", false, null, true);
 	wp_enqueue_script('custom');
 
+}
+
+//Menu
+register_nav_menus(array(
+	'menutop' => __('Menu Top', 'меню верхнего уровня'),
+	'menubottom' => __('Menu Bottom', 'меню нижнего уровня'),
+));
+
+//add first link at menu class "active"
+add_filter('nav_menu_link_attributes', 'filter_nav_menu_link_attributes', 10, 4);
+
+function filter_nav_menu_link_attributes($atts, $item, $args, $depth) {
+	if ($atts['title'] == "selectDefault") {
+		$atts['class'] .= 'active';
+	}
+
+	return $atts;
 }
