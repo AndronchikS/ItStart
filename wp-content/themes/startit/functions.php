@@ -47,3 +47,19 @@ function filter_nav_menu_link_attributes($atts, $item, $args, $depth) {
 
 	return $atts;
 }
+
+//Pictures
+add_theme_support('post-thumbnails');
+
+function sgr_filter_image_sizes($sizes) {
+	unset($sizes['thumbnail']);
+	unset($sizes['medium']);
+	unset($sizes['large']);
+	return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'sgr_filter_image_sizes');
+
+add_image_size('abaut', 375, 223, true);
+add_image_size('abaut-right', 210, 214, true);
+add_image_size('portfolio', 210, 210, true);
+add_image_size('blog', 290, 219, false);
