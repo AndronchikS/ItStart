@@ -12,7 +12,7 @@
         <title><?php bloginfo('name');?></title>
 
         <!-- Favicon and Touch Icons -->
-        <link href=<?php echo bloginfo('template_directory') . "/images/favicon.png" ?> rel="shortcut icon" type="image/png">
+        <link href=<?php echo get_field('icon'); ?> rel="shortcut icon" type="image/png">
         <?php wp_head();?>
     </head>
 
@@ -23,18 +23,19 @@
                 <div class="container">
                     <nav id="flexmenu">
                         <div class="logo">
-                            <a href="index.php"><img src=<?php echo bloginfo('template_directory') . "/images/logo.png" ?> alt="logo"></a>
+                            <a href="index.php"><img src=<?php echo get_field('logo'); ?> alt="logo"></a>
                         </div>
                         <div class="nav-inner">
                             <div id="mobile-toggle" class="mobile-btn"></div>
-                            <ul class="main-menu">
-                                <li class="menu-item"><a class="active" href="index.php#slider">Home</a></li>
-                                <li class="menu-item"><a href="index.php#services">Services</a></li>
-                                <li class="menu-item"><a href="index.php#about">About Us</a></li>
-                                <li class="menu-item"><a href="index.php#works">Portfolio</a></li>
-                                <li class="menu-item"><a href="index.php#blog">Blog</a></li>
-                                <li class="menu-item"><a href="index.php#contact">Contact</a></li>
-                            </ul>
+                            <?php
+if (has_nav_menu('menutop')) {
+	wp_nav_menu(array(
+		'theme_location' => 'menutop',
+		'menu_class' => 'main-menu',
+		'container' => false,
+	));
+}
+?>
                         </div>
                     </nav>
                 </div>
