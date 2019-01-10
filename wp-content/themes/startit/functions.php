@@ -63,3 +63,4 @@ add_image_size('abaut', 375, 223, true);
 add_image_size('abaut-right', 210, 214, true);
 add_image_size('portfolio', 210, 210, true);
 add_image_size('blog', 290, 219, false);
+add_image_size('shape1', 1024, 52, false);
