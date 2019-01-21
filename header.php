@@ -7,12 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <meta name="description" content="Carrby - Agency Template">
         <meta name="author" content="">
-
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <!-- Page Title -->
         <title><?php bloginfo('name');?></title>
 
         <!-- Favicon and Touch Icons -->
-        <link href=<?php echo get_field('icon'); ?> rel="shortcut icon" type="image/png">
+        <link href=<?php the_field('icon', 194);?> rel="shortcut icon" type="image/png">
         <?php wp_head();?>
     </head>
 
@@ -23,7 +23,7 @@
                 <div class="container">
                     <nav id="flexmenu">
                         <div class="logo">
-                            <a href="index.php"><img src=<?php echo get_field('logo'); ?> alt="logo"></a>
+                            <a href="index.php"><img src=<?php the_field('main_logo_', 396);?> alt="logo"></a>
                         </div>
                         <div class="nav-inner">
                             <div id="mobile-toggle" class="mobile-btn"></div>

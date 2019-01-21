@@ -2,21 +2,21 @@
     <div class="slider">
         <div class="container">
             <div class="slide-content">
-                <h6 class="sub_heading"><?php echo get_field('title'); ?></h6>
+                <h6 class="sub_heading"><?php the_field('title', 194);?></h6>
                 <div class="typing_content">
                     <h2 class="heading">
-                        <?php echo get_field('title_change'); ?> <span class="typed-element"><?php echo get_field('first_word'); ?></span>
+                        <?php the_field('title_change', 194);?> <span class="typed-element"><?php the_field('first_word', 194);?></span>
                     </h2>
                     <div class="typed-strings">
-                        <p><?php echo get_field('second_word'); ?></p>
-                        <p><?php echo get_field('third_word'); ?></p>
+                        <p><?php the_field("second_word", 194);?></p>
+                        <p><?php the_field("third_word", 194);?></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="scroll_btn"><a href="index.php#about"><i class="fa fa-angle-down"></i></a></div>
         <div class="section-shape">
-            <img src=<?php echo get_field('image_slider'); ?> alt="shape image">
+            <img src=<?php the_field('image_slider', 194);?> alt="shape image">
         </div>
     </div>
 </section>

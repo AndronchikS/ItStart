@@ -5,15 +5,15 @@
                 <div class="contact-info">
                     <div class="contact-info-details">
                         <h4>Phone</h4>
-                        <p>+ 123 - 456 -789,   + 987 - 654 - 321</p>
+                        <p><?php the_field('telephone', 396);?></p>
                     </div>
                     <div class="contact-info-details">
                         <h4>Address</h4>
-                        <p>RK road, United states of America</p>
+                        <p><?php the_field('adress', 396);?></p>
                     </div>
                     <div class="contact-info-details">
                         <h4>E-mail</h4>
-                        <p>carrbyagency@gmail.com</p>
+                        <p><?php the_field('email', 396);?></p>
                     </div>
                 </div>
             </div>
@@ -51,10 +51,10 @@
                                     </div>
                                     <div class="col-md-6 col-lg-6">
                                         <ul class="top-social list-inline">
-                                            <li><a href="index.php#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="index.php#"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="index.php#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="index.php#"><i class="fa fa-skype"></i></a></li>
+                                            <?php $socials = get_field('social', 396);
+foreach ($socials as $social): ?>
+                                            <li><a href="index.php#"><i class="<?php echo $social['class'] ?>" ></i></a></li>
+                                        <?php endforeach;?>
                                         </ul>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
             <div class="footer-bottom">
                 <div class="container">
                     <div class="copyright">
-                        <p> <?php echo get_field('footerdescriptionyear'); ?> <a href="index.php#"><?php echo get_field('footercreate'); ?></a> <?php echo get_field('footerrights'); ?></p>
+                        <p> <?php the_field('footerdescriptionyear', 396);?> <a href="index.php#"><?php the_field('footercreate', 396);?></a> <?php the_field('footerrights', 396);?></p>
                     </div>
                 </div>
             </div>

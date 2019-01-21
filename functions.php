@@ -28,7 +28,6 @@ function my_scripts_method() {
 
 	wp_register_script('custom', get_template_directory_uri() . "/js/custom.js", false, null, true);
 	wp_enqueue_script('custom');
-
 }
 
 //Menu
@@ -64,3 +63,71 @@ add_image_size('abaut-right', 210, 214, true);
 add_image_size('portfolio', 210, 210, true);
 add_image_size('blog', 290, 219, false);
 add_image_size('shape1', 1024, 52, false);
+
+//add my recode
+add_action('init', 'true_register_post_type_init');
+
+function true_register_post_type_init() {
+	$labels = array(
+		'name' => 'Services',
+		'singular_name' => 'service', // админ панель Добавить->Функцию
+		'add_new' => 'Добавить service',
+		'add_new_item' => 'Добавить новый service', // заголовок тега <title>
+		'edit_item' => 'Редактировать services',
+		'new_item' => 'Новый service',
+		'all_items' => 'Все services',
+		'view_item' => 'Просмотр service на сайте',
+		'search_items' => 'Искать service',
+		'not_found' => 'Services не найдено.',
+		'not_found_in_trash' => 'В корзине нет services.',
+		'menu_name' => 'Services', // ссылка в меню в админке
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'show_ui' => true, // показывать интерфейс в админке
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-admin-generic', // иконка в меню
+		'menu_position' => 20, // порядок в меню
+		'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail'),
+	);
+	register_post_type('services', $args);
+}
+
+//add my portfolio
+add_action('init', 'true_register_portfolio_post_type_init');
+
+function true_register_portfolio_post_type_init() {
+	$labels = array(
+		'name' => 'Portfolio',
+		'singular_name' => 'portfolio', // админ панель Добавить->Функцию
+		'add_new' => 'Добавить portfolio',
+		'add_new_item' => 'Добавить новый portfolio', // заголовок тега <title>
+		'edit_item' => 'Редактировать portfolio',
+		'new_item' => 'Новый portfolio',
+		'all_items' => 'Все portfolio',
+		'view_item' => 'Просмотр portfolio на сайте',
+		'search_items' => 'Искать portfolio',
+		'not_found' => 'portfolio не найдено.',
+		'not_found_in_trash' => 'В корзине нет portfolio.',
+		'menu_name' => 'portfolio', // ссылка в меню в админке
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'show_ui' => true, // показывать интерфейс в админке
+		'has_archive' => true,
+		'taxonomies' => array('forportfolio'),
+		'menu_icon' => 'dashicons-hammer', // иконка в меню
+		'menu_position' => 21, // порядок в меню
+		'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail'),
+	);
+	register_post_type('portfolio', $args);
+
+	register_taxonomy('forportfolio', array('portfolio'), array(
+		'label' => 'category', // определяется параметром $labels->name
+		'labels' => array('name' => 'category'),
+		'hierarchical' => true,
+
+	));
+}
