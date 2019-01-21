@@ -34,23 +34,23 @@ $query = new WP_Query(array(
 	),
 ));
 while ($query->have_posts()): $query->the_post();?>
-							<div class="col-md-4 col-lg-3 portfolio ?>">
-								<div class="portfolio-wrapper">
-									<div class="works-img">
-										<a href="<?php echo
+								<div class="col-md-4 col-lg-3 portfolio ?>">
+									<div class="portfolio-wrapper">
+										<div class="works-img">
+											<a href="<?php echo
 	get_the_post_thumbnail_url($post->ID); ?>" data-fancybox="images">
-										<img src="<?php echo
+											<img src="<?php echo
 	get_the_post_thumbnail_url($post->ID, 'portfolio'); ?>" alt="" />
-										</a>
-									</div>
-									<div class="works-info">
-										<div class="label-text">
-											<h4><?php the_title();?></h4>
+											</a>
+										</div>
+										<div class="works-info">
+											<div class="label-text">
+												<h4><?php the_title();?></h4>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						<?php endwhile;?>
+							<?php endwhile;?>
 				<?php wp_reset_postdata();?>
 			</div>
 		</div>
