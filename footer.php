@@ -5,15 +5,15 @@
                 <div class="contact-info">
                     <div class="contact-info-details">
                         <h4>Phone</h4>
-                        <p><?php the_field('telephone', 396);?></p>
+                        <p><?php the_field('telephone', 396); ?></p>
                     </div>
                     <div class="contact-info-details">
                         <h4>Address</h4>
-                        <p><?php the_field('adress', 396);?></p>
+                        <p><?php the_field('adress', 396); ?></p>
                     </div>
                     <div class="contact-info-details">
                         <h4>E-mail</h4>
-                        <p><?php the_field('email', 396);?></p>
+                        <p><?php the_field('email', 396); ?></p>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,9 @@
                 <div class="contact-form-two">
                     <div class="contact-title">
                         <h3>Drop Us a line</h3>
-                        <form class="appoint-form-two" action="http://wpthemebooster.com/demo/themeforest/html/carrby/register.php" method="post">
+                        <form class="appoint-form-two"
+                              action="http://wpthemebooster.com/demo/themeforest/html/carrby/register.php"
+                              method="post">
                             <div class="form-container">
                                 <div class="row">
                                     <div class="col-md-6 col-lg-4">
@@ -31,7 +33,8 @@
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="form-group">
-                                            <input type="text" name="subject" class="form-control" placeholder="Subject">
+                                            <input type="text" name="subject" class="form-control"
+                                                   placeholder="Subject">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
@@ -41,7 +44,8 @@
                                     </div>
                                     <div class="col-md-6 col-lg-12">
                                         <div class="form-group">
-                                            <textarea name="message" class="form-control" placeholder="Your Message"></textarea>
+                                            <textarea name="message" class="form-control"
+                                                      placeholder="Your Message"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-6">
@@ -52,9 +56,10 @@
                                     <div class="col-md-6 col-lg-6">
                                         <ul class="top-social list-inline">
                                             <?php $socials = get_field('social', 396);
-foreach ($socials as $social): ?>
-                                            <li><a href="index.php#"><i class="<?php echo $social['class'] ?>" ></i></a></li>
-                                        <?php endforeach;?>
+                                            foreach ($socials as $social): ?>
+                                                <li><a href="index.php#"><i class="<?php echo $social['class'] ?>"></i></a>
+                                                </li>
+                                            <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -66,15 +71,17 @@ foreach ($socials as $social): ?>
         </div>
     </div>
 </section>
-        <footer id="footer" class="footer">
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="copyright">
-                        <p> <?php the_field('footerdescriptionyear', 396);?> <a href="index.php#"><?php the_field('footercreate', 396);?></a> <?php the_field('footerrights', 396);?></p>
-                    </div>
-                </div>
+<footer id="footer" class="footer">
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="copyright">
+                <p> <?php the_field('footerdescriptionyear', 396); ?>
+                    <a href="index.php#"><?php the_field('footercreate', 396); ?></a> <?php the_field('footerrights', 396); ?>
+                </p>
             </div>
-        </footer>
-        <?php wp_footer();?>
-    </body>
+        </div>
+    </div>
+</footer>
+<?php wp_footer(); ?>
+</body>
 </html>
