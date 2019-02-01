@@ -13,13 +13,16 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="blog_post">
                         <div class="post_img">
-                            <a href="index.php#"><img
+                            <a href="<?php echo $post->guid; ?>"><img
                                         src=<?php echo get_the_post_thumbnail_url($post->ID, 'blog'); ?> alt="img"></a>
                         </div>
                         <div class="post_content">
                             <div class="post_header">
-                                <h2 class="post_title"><a href="index.php#"><?php echo $post->post_title; ?></a></h2>
-                                <div class="read_more"><a href="index.php#"><?php echo $post->post_content; ?></a></div>
+                                <h2 class="post_title"><a
+                                            href="<?php echo $post->guid; ?>"><?php echo $post->post_title; ?></a></h2>
+                                <div class="read_more"><a
+                                            href="<?php echo $post->guid; ?>">GO TO ARTICLE</a>
+                                </div>
                             </div>
                         </div>
                     </div>

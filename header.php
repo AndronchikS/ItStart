@@ -16,15 +16,16 @@
     <link href=<?php the_field('icon', 194); ?> rel="shortcut icon
     " type="image/png">
     <?php wp_head(); ?>
+    <!--<base target='_blank' />-->
 </head>
 <body>
 <!-- Start Header -->
-<header id="header" class="header">
+<header id="header" class="<?php echo $classMenu?>">
     <div class="navigation">
         <div class="container">
             <nav id="flexmenu">
                 <div class="logo">
-                    <a href="index.php"><img src=<?php the_field('main_logo_', 396); ?> alt="logo"></a>
+                    <a href="index.php"><img src=<?php the_field($mainLogo, 396); ?> alt="logo"></a>
                 </div>
                 <div class="nav-inner">
                     <div id="mobile-toggle" class="mobile-btn"></div>

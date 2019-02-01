@@ -194,6 +194,7 @@ img{
     padding-bottom: 0px;
     background-position: center;
     background-size: cover;
+    background-image: url(images/slider/slider-bg2.jpg);
 }
 .section-shape img{
     position: absolute;
@@ -2407,7 +2408,4 @@ a img.aligncenter {
 }
 button:focus{
     outline: none;
-}
-.slider_1{
-    background-image: url(images/slider/slider-bg1.jpg);
 }

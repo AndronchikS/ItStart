@@ -8,12 +8,12 @@ Description:
 /*	IE 10 Fix*/
 
 (function ($) {
-	'use strict';
-	
-	jQuery(document).ready(function () {
+    'use strict';
+
+    jQuery(document).ready(function () {
 
         //Sticky menu add class
-        $(window).scroll(function() {    
+        $(window).scroll(function () {
             var scroll = $(window).scrollTop();
 
             if (scroll >= 150) {
@@ -45,33 +45,31 @@ Description:
         });
 
 
-
-        //Active Menu Item on Page Scroll            
+        //Active Menu Item on Page Scroll
         var sections = $('section')
-          , nav = $('header')
-          , nav_height = nav.outerHeight();
-         
+            , nav = $('header')
+            , nav_height = nav.outerHeight();
+
         $(window).on('scroll', function () {
-          var cur_pos = $(this).scrollTop();
-         
-          sections.each(function() {
-            var top = $(this).offset().top - 140,
-                bottom = top + $(this).outerHeight();
-         
-            if (cur_pos >= top && cur_pos <= bottom) {
-              nav.find('a').removeClass('active');
-              sections.removeClass('active');
-         
-              $(this).addClass('active');
-              nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
-            }
-          });
+            var cur_pos = $(this).scrollTop();
+
+            sections.each(function () {
+                var top = $(this).offset().top - 140,
+                    bottom = top + $(this).outerHeight();
+
+                if (cur_pos >= top && cur_pos <= bottom) {
+                    nav.find('a').removeClass('active');
+                    sections.removeClass('active');
+
+                    $(this).addClass('active');
+                    nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+                }
+            });
         });
 
 
-
-		// Slider Carousel
-		$('.slider_carousel').owlCarousel({
+        // Slider Carousel
+        $('.slider_carousel').owlCarousel({
             items: 1,
             loop: true,
             center: true,
@@ -84,10 +82,10 @@ Description:
             nav: false,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         })
-        
 
-		// Testimonial Carousel
-		$('.testimonial_carousel').owlCarousel({
+
+        // Testimonial Carousel
+        $('.testimonial_carousel').owlCarousel({
             items: 1,
             loop: true,
             margin: 0,
@@ -128,29 +126,105 @@ Description:
 
 
         // Mixitup Portfolio
-        $('#filters').on( 'click', 'li', function() {
-          var filterValue = $( this ).attr('data-filter');
+        $('#filters').on('click', 'li', function () {
+            var filterValue = $(this).attr('data-filter');
         });
         $('#portfoliolist').mixItUp({
             selectors: {
                 target: '.portfolio',
-                filter: '.filter' 
+                filter: '.filter'
             },
             load: {
-                filter: '*'  
-            }     
+                filter: '*'
+            }
         });
 
 
         // Popup Video
         $('.fancybox-media').fancybox({
-          openEffect  : 'none',
-          closeEffect : 'none',
-          helpers : {
-            media : {}
-          }
+            openEffect: 'none',
+            closeEffect: 'none',
+            helpers: {
+                media: {}
+            }
         });
 
- 	});
-	
+
+        var $mainBox = $('.main-content');
+
+        $('.sidebar_recent_posts a, .archive_list a, .post_block a').click(function (e) {
+            var href = $(this).attr('href');
+            e.preventDefault();
+            ajaxReq(href);
+        });
+
+        function ajaxReq(href) {
+            $mainBox.animate({opacity: 0.3}, 1000);
+            jQuery(document).ready(function ($) {
+                var data = {
+                    action: 'refresh',
+                    link: href
+                };
+                jQuery.post(myajax.ajxurl, data, function (response) {
+                    $mainBox
+                        .html(response)
+                        .animate({opacity: 1}, 1500);
+                });
+
+            });
+        }
+
+
+        var $pageBox = $('.blog-list');
+
+        $('.pagination-div a').click(function (e) {
+
+            var href = $(this).attr('href');
+            e.preventDefault();
+            ajaxPagin(href);
+        });
+
+        function ajaxPagin(href) {
+            $pageBox.animate({opacity: 0.3}, 1000);
+            jQuery(document).ready(function ($) {
+                var data = {
+                    action: 'refreshBlog',
+                    link: href
+                };
+                jQuery.post(myajax.ajxurl, data, function (response) {
+                    $pageBox
+                        .html(response)
+                        .animate({opacity: 1}, 1500);
+                });
+
+            });
+        }
+
+
+        var $taxonomyBox = $('.blog-list');
+
+        $('.category_list a').click(function (e) {
+
+            var href = $(this).attr('href');
+            e.preventDefault();
+            ajaxTaxonomy(href);
+        });
+
+        function ajaxTaxonomy(href) {
+            $taxonomyBox.animate({opacity: 0.3}, 1000);
+            jQuery(document).ready(function ($) {
+                var data = {
+                    action: 'refreshTaxon',
+                    link: href
+                };
+                jQuery.post(myajax.ajxurl, data, function (response) {
+                    $taxonomyBox
+                        .html(response)
+                        .animate({opacity: 1}, 1500);
+                });
+
+            });
+        }
+    });
+
 })(jQuery);

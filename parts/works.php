@@ -5,7 +5,7 @@
             <p><?php the_field('descportfolio', 194); ?></p>
         </div>
         <ul id="filters" class="clearfix text-center">
-            <?php $hiterms = $hiterms = get_terms("forportfolio",
+            <?php $hiterms = get_terms("forportfolio",
                 array(
                     "orderby" => "slug",
                     "parent" => 0,
@@ -47,7 +47,7 @@
                             </div>
                             <div class="works-info">
                                 <div class="label-text">
-                                    <h4><?php the_title(); ?></h4>
+                                    <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                 </div>
                             </div>
                         </div>

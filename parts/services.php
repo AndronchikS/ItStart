@@ -17,7 +17,7 @@
                         <div class="srv_desc">
                             <h5 class="count"><?php ++$num;
                                 echo sprintf('%1$02d', $num); ?></h5>
-                            <h4><a href="index.php#"><?php echo $post->post_title; ?></a></h4>
+                            <h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
                             <p><?php echo $post->post_content; ?></p>
                         </div>
                     </div>
